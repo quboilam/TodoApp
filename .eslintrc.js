@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 module.exports = {
+  root: true,
   extends: [
     // Chúng ta sẽ dùng các rule mặc định từ các plugin mà chúng ta đã cài.
     'eslint:recommended',
@@ -14,7 +15,12 @@ module.exports = {
     'eslint-config-prettier',
     'prettier'
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', '@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname
+  },
   settings: {
     react: {
       // Nói eslint-plugin-react tự động biết version của React.
